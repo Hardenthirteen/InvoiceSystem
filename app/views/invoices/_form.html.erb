@@ -1,0 +1,38 @@
+<%= form_for :invoice_info, url: invoices_path do |f| %>
+
+  <% if @invoice_info.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@invoice_info.errors.count, "error") %> prohibited
+        this invoice from being saved:
+      </h2>
+      <ul>
+        <% @invoice_info.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- 发票抬头 -->
+  <p>
+    <%= f.label :invoiceTitle %><br>
+    <%= f.text_field :invoiceTitle %>
+  </p>
+
+  <!-- 发票税号 -->
+  <p>
+    <%= f.label :invoiceNumber %><br>
+    <%= f.text_field :invoiceNumber %>
+  </p>
+
+  <!-- 开票人姓名 -->
+  <p>
+    <%= f.label :applicatName %><br>
+    <%= f.text_field :applicatName %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
