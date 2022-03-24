@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tests
   get 'welcome/index'
   resources :invoices
   root 'welcome#index'

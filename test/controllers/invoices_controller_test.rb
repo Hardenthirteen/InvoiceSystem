@@ -5,11 +5,10 @@ class InvoicesControllerTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
   #
-  test "unsuccessful destroy" do
-    get invoices_path(@invoice_info)
-    assert_template 'inovices/show'
-    delete invoices_path(@invoice_info), params: { invoice: { id: "1", InvoiceTitle: "test" } }
 
-    assert_template 'inovices/destroy'
+
+  test "unsuccessful save" do
+    @invoice_info = Invoice.new
+    assert @invoice_info.save
   end
 end

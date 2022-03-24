@@ -1,4 +1,4 @@
-<%= form_for :invoice_info ,url: invoice_path(@invoice_info) do |f| %>
+<%= form_for :invoice_info do |f| %>
 
   <% if @invoice_info.errors.any? %>
     <div id="error_explanation">
@@ -32,7 +32,7 @@
     <%= f.text_field :applicatName %>
   </p>
 
-  <p>
+  <div>
     <%= f.submit %>
-  </p>
+  </div>
 <% end %>

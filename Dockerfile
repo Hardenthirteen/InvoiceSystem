@@ -6,3 +6,4 @@ ADD Gemfile /InvoiceSystem/Gemfile
 RUN gem install bundler
 RUN bundle install
 ADD . /InvoiceSystem
+CMD bundle exec rails s -p 3000 -b '0.0.0.0'
