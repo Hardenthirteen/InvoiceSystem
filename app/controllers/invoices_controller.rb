@@ -14,6 +14,7 @@ class InvoicesController < ApplicationController
   end
 
   def create
+    #考虑并发问题
     @invoice_info = Invoice.new(invoice_params)
     if(@invoice_info.save)
       redirect_to @invoice_info
@@ -28,6 +29,7 @@ class InvoicesController < ApplicationController
 
   def update
     @invoice_info = Invoice.find(params[:id])
+    #考虑并发问题
     if @invoice_info.update(invoice_params)
       redirect_to @invoice_info
     else
