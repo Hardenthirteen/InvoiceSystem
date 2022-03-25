@@ -4,7 +4,7 @@ class InvoicesController < ApplicationController
   @@lock = Mutex.new
 
   def index
-    @invoices_info = Invoice.all
+    @invoices_info = Invoice.all.order(:invoice_number)
   end
 
   def show
