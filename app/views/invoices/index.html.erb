@@ -9,9 +9,9 @@
 
   <% @invoices_info.each do |invoice| %>
     <tr>
-      <td><%= invoice.invoiceTitle %></td>
-      <td><%= invoice.invoiceNumber %></td>
-      <td><%= invoice.applicatName %></td>
+      <td><%= invoice.invoice_title %></td>
+      <td><%= invoice.invoice_number %></td>
+      <td><%= invoice.applicat_name %></td>
       <td><%= link_to 'Show', invoice_path(invoice) %></td>
       <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
       <td><%= link_to 'Delete', invoice_path(invoice), data:{turbo_method: :delete, turbo_confirm: "确认删除吗"} %></td>

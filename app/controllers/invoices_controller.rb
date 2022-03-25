@@ -30,7 +30,7 @@ class InvoicesController < ApplicationController
   def update
     @invoice_info = Invoice.find(params[:id])
     #考虑并发问题
-    if @invoice_info.update(invoice_params)
+    if @invoice_info.with_lock.update(invoice_params)
       redirect_to @invoice_info
     else
       render 'edit'
@@ -39,19 +39,17 @@ class InvoicesController < ApplicationController
 
   def destroy
     @invoice_info = Invoice.find(params[:id])
-    puts("asd")
     @invoice_info.destroy
     redirect_to invoices_path
   end
   def deleteInvoice(id)
     @invoice_info = Invoice.find(id)
-    puts("asd")
     @invoice_info.destroy
     redirect_to invoices_path
   end
 
   private
     def invoice_params
-      params.require(:invoice_info).permit(:invoiceTitle, :invoiceNumber, :applicatName)
+      params.require(:invoice_info).permit(:invoice_title, :invoice_number, :applicat_name)
     end
 end

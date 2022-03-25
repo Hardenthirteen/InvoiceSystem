@@ -1,38 +1,32 @@
-<%= form_for :invoice_info do |f| %>
+<%= form_with(model: invoice_info) do |form| %>
+  <% if invoice_info.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(invoice_info.errors.count, "error") %> prohibited this invoice_info from being saved:</h2>
 
-  <% if @invoice_info.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@invoice_info.errors.count, "error") %> prohibited
-        this invoice from being saved:
-      </h2>
       <ul>
-        <% @invoice_info.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+        <% invoice_info.errors.each do |error| %>
+          <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
   <!-- 发票抬头 -->
-  <p>
-    <%= f.label :invoiceTitle %><br>
-    <%= f.text_field :invoiceTitle %>
-  </p>
-
+  <div>
+    <%= form.label :invoice_title, style: "display: block" %>
+    <%= form.text_field :invoice_title %>
+  </div>
   <!-- 发票税号 -->
-  <p>
-    <%= f.label :invoiceNumber %><br>
-    <%= f.text_field :invoiceNumber %>
-  </p>
-
+  <div>
+    <%= form.label :invoice_number, style: "display: block" %>
+    <%= form.text_field :invoice_number %>
+  </div>
   <!-- 开票人姓名 -->
-  <p>
-    <%= f.label :applicatName %><br>
-    <%= f.text_field :applicatName %>
-  </p>
+  <div>
+    <%= form.label :applicat_name, style: "display: block" %>
+    <%= form.text_field :applicat_name %>
+  </div>
 
   <div>
-    <%= f.submit %>
+    <%= form.submit %>
   </div>
 <% end %>
