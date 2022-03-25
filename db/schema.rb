@@ -15,9 +15,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_083446) do
   enable_extension "plpgsql"
 
   create_table "invoices", force: :cascade do |t|
-    t.string "invoiceTitle"
-    t.string "invoiceNumber"
-    t.string "applicatName"
+    t.string "invoice_title"
+    t.string "invoice_number"
+    t.string "applicat_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -8,7 +8,7 @@ class InvoicesControllerTest < ActionDispatch::IntegrationTest
 
 
   test "unsuccessful save" do
-    @invoice_info = Invoice.new
-    assert @invoice_info.save
+    @invoice = Invoice.new
+    assert @invoice.save
   end
 end

@@ -1,14 +1,14 @@
 <p>
   <strong>invoiceTitle:</strong>
-  <%= @invoice_info.invoice_title %>
+  <%= @invoice.invoice_title %>
 </p>
 <p>
   <strong>invoiceNumber:</strong>
-  <%= @invoice_info.invoice_number %>
+  <%= @invoice.invoice_number %>
 </p>
 <p>
   <strong>applicatName:</strong>
-  <%= @invoice_info.applicat_name %>
+  <%= @invoice.applicat_name %>
 </p>
-<td><%= link_to 'Edit', edit_invoice_path(@invoice_info) %></td>
+<td><%= link_to 'Edit', edit_invoice_path(@invoice) %></td>
 <%= link_to 'Back', invoices_path %>
